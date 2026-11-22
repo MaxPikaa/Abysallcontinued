@@ -14,7 +14,7 @@ getgenv().Abysall = {
 }
 
 
-local BaseUrl = "https://raw.githubusercontent.com/coolcookiebusiness/AbysallHubContinued/main/"
+local BaseUrl = "https://raw.githubusercontent.com/MaxPikaa/AbysallHubContinued/main/"
 loadstring(game:HttpGet(BaseUrl .. "Components/Status.luau"))(BaseUrl)
 
 if shared.Runningnofine then
