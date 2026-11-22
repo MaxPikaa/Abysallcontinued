@@ -5756,11 +5756,11 @@ do
 end
 
 local ObjectiveESPChoices = {
-	"门钥匙", "电器间钥匙", "发电机保险丝", "发电机",
-	"书", "密码纸", "保险丝拉杆", "时间拉杆", "锚点",
-	"水泵", "藤蔓拉杆", "闸门拉杆", "闸门按钮", "礼物",
-	"车库门", "镜子", "购物车", "警报器", "粉碎机",
-	"糖果魔法", "包裹投递口", "地窖", "鱼缸",
+	"Door Key", "Electrical Key", "Generator Fuse", "Generator",
+	"Hint Book", "Hint Paper", "Fuse Breaker", "Time Lever", "Anchor",
+	"Water Pump", "Vine Lever", "Gate Lever", "Gate Button", "Present",
+	"Garage Door", "Mirror", "Shopping Cart", "Fire Alarm", "Scrapper",
+	"Candy Magic", "Box Deposit", "Cellar", "Fish Tank",
 }
 Groupboxes.Visuals_ESP_Toggles:AddToggle("ObjectiveESPToggle", {
 	Text = "目标点ESP", Default = false,
@@ -5781,7 +5781,7 @@ Groupboxes.Visuals_ESP_Toggles:AddToggle("DoorESPToggle", {
 })
 Toggles.DoorESPToggle:AddColorPicker("DoorESPColor", { Text = "门", Default = Color3.fromRGB(0, 200, 255), Transparency = 0 })
 
-local HidingSpotESPChoices = { "衣柜", "储物柜", "躲藏点", "床", "双人床", "通风管道", "垃圾箱" }
+local HidingSpotESPChoices = { "Closet", "Locker", "Hiding_Spot", "Hiding Spot", "Bed", "Double Bed", "Vent", "Dumpster" }
 Groupboxes.Visuals_ESP_Toggles:AddToggle("HidingSpotESPToggle", {
 	Text = "躲藏点", Default = false,
 	Tooltip = "高亮衣柜、储物柜、床、通风管等躲藏点，可在下方逐项勾选"
@@ -5800,7 +5800,7 @@ Groupboxes.Visuals_ESP_Toggles:AddToggle("PlayerESPToggle", {
 })
 Toggles.PlayerESPToggle:AddColorPicker("PlayerESPColor", { Text = "玩家", Default = Color3.fromRGB(255, 255, 255), Transparency = 0 })
 
-local ChestESPChoices = { "箱子", "上锁的箱子", "工具箱", "上锁的工具箱", "藤蔓箱子", "工具棚", "上锁物品柜", "老鼠洞" }
+local ChestESPChoices = { "Chest", "Locked Chest", "Toolbox", "Locked Toolbox", "Vine Chest", "Toolshed", "Locked Item Locker", "Mouse" }
 Groupboxes.Visuals_ESP_Toggles:AddToggle("ChestESPToggle", {
 	Text = "宝箱", Default = false,
 	Tooltip = "高亮宝箱与工具箱，可在下方逐项勾选"
@@ -5827,7 +5827,7 @@ Groupboxes.Visuals_ESP_Toggles:AddDropdown("ItemESPOptions", {
 })
 Toggles.ItemESPToggle:AddColorPicker("ItemESPColor", { Text = "道具", Default = Color3.fromRGB(170, 0, 255), Transparency = 0 })
 
-local CurrencyESPChoices = { "金币", "星尘" }
+local CurrencyESPChoices = { "Gold Pile", "Stardust Pile" }
 Groupboxes.Visuals_ESP_Toggles:AddToggle("CurrencyESPToggle", {
 	Text = "金币", Default = false,
 	Tooltip = "高亮金币堆与星尘堆，可在下方逐项勾选"
@@ -5848,7 +5848,7 @@ Groupboxes.Visuals_ESP_Toggles:AddToggle("LadderESPToggle", {
 })
 Toggles.LadderESPToggle:AddColorPicker("LadderESPColor", { Text = "梯子", Default = Color3.fromRGB(3, 67, 71), Transparency = 0 })
 
-local MiscESPChoices = { "车库门", "警报器", "购物车", "鱼缸", "其他" }
+local MiscESPChoices = { "Garage Door", "Fire Alarm", "Shopping Cart", "Fish Tank", "Other" }
 Groupboxes.Visuals_ESP_Toggles:AddToggle("MiscESPToggle", {
 	Text = "杂项", Default = false,
 	Tooltip = "高亮车库门、火警器、购物车等杂项物件，可在下方逐项勾选"
@@ -5930,32 +5930,32 @@ local function VisualESPEnabled(Category, ChoiceLabel)
 end
 
 local ObjectiveLabels = {
-	["DepotHalloween"] 		   = "糖果魔法",
-	["StairwellLockpickDoor"]  = "车库门",
-	["Mirror"]				   = "镜子",
-	["ShoppingCart"]		   = "购物车",
-	["StairwellFireAlarm"]     = "警报器",
-	["StairwellScrapper"]	   = "粉碎机",
-	["ArchivesPackageDeposit"] = "包裹投递口",
-	["Cellar"] 			   = "地窖",
-	["ArchivesFihTank"]        = "Fih 鱼缸",
-	["KeyObtain"]              = "门钥匙",
-	["ElectricalKeyObtain"]    = "电器间钥匙",
-	["MinesGenerator"]         = "发电机",
-	["FuseObtain"]             = "发电机保险丝",
-	["LiveHintBook"]           = "书",
-	["LiveBreakerPolePickup"]  = "保险丝拉杆",
-	["LibraryHintPaper"]       = "密码纸",
-	["PickupItem"]             = "密码纸",
-	["CringlePresent"]         = "礼物",
-	["LeverForGate"]           = "闸门拉杆",
-	["MinesGateButton"]        = "闸门按钮",
-	["GardenGateButton"]       = "闸门按钮",
+	["DepotHalloween"] 		   = "Candy Magic",
+	["StairwellLockpickDoor"]  = "Garage Door",
+	["Mirror"]				   = "Mirror",
+	["ShoppingCart"]		   = "Shopping Cart",
+	["StairwellFireAlarm"]     = "Fire Alarm",
+	["StairwellScrapper"]	   = "Scrapper",
+	["ArchivesPackageDeposit"] = "BoxDeposit",
+	["Cellar"] 			   = "Cellar",
+	["ArchivesFihTank"]        = "Fih Tank",
+	["KeyObtain"]              = "Door Key",
+	["ElectricalKeyObtain"]    = "Electrical Key",
+	["MinesGenerator"]         = "Generator",
+	["FuseObtain"]             = "Generator Fuse",
+	["LiveHintBook"]           = "Hint Book",
+	["LiveBreakerPolePickup"]  = "Fuse Breaker",
+	["LibraryHintPaper"]       = "Hint Paper",
+	["PickupItem"]             = "Hint Paper",
+	["CringlePresent"]         = "Present",
+	["LeverForGate"]           = "Gate Lever",
+	["MinesGateButton"]        = "Gate Button",
+	["GardenGateButton"]       = "Gate Button",
 }
 
 local ObjectiveFamilyFix = {
-	["包裹投递口"] = "包裹投递口",
-	["Fih 鱼缸"]   = "鱼缸",
+	["BoxDeposit"] = "Box Deposit",
+	["Fih Tank"]   = "Fish Tank",
 }
 
 local function ApplyVisualESP_Objective()
@@ -6019,10 +6019,10 @@ Options.DoorESPColor:OnChanged(function(Value)
 end)
 
 local HidingSpotLabels = {
-	Wardrobe = "衣柜", ["Backdoor_Wardrobe"] = "衣柜", Toolshed = "衣柜",
-	RetroWardrobe = "衣柜", ["Wardrobe-FOOLS26"] = "衣柜",
-	Locker_Large = "储物柜", Rooms_Locker = "躲藏点", Rooms_Locker_Fridge = "储物柜",
-	Bed = "床", Double_Bed = "双人床", CircularVent = "通风管道", Dumpster = "垃圾箱"
+	Wardrobe = "Closet", ["Backdoor_Wardrobe"] = "Closet", Toolshed = "Closet",
+	RetroWardrobe = "Closet", ["Wardrobe-FOOLS26"] = "Closet",
+	Locker_Large = "Locker", Rooms_Locker = "Hiding_Spot", Rooms_Locker_Fridge = "Locker",
+	Bed = "Bed", Double_Bed = "Double Bed", CircularVent = "Vent", Dumpster = "Dumpster"
 }
 local function ApplyVisualESP_HidingSpot()
 	for _, Object in Objects.HidingSpots do
@@ -6063,15 +6063,15 @@ end)
 
 local ChestLabels = {
 	ChestBox = true, ChestBoxLocked = true, Toolbox = true, Toolbox_Locked = true,
-	Chest_Vine = "藤蔓箱子", Toolshed_Small = "工具棚", Locker_Small_Locked = "上锁物品柜", MouseHole = "老鼠洞"
+	Chest_Vine = "Vine Chest", Toolshed_Small = "Toolshed", Locker_Small_Locked = "Locked Item Locker", MouseHole = "Mouse"
 }
 local function ApplyVisualESP_Chest()
 	for _, Object in Objects.Chests do
 		local Label
 		if Object.Name == "ChestBox" or Object.Name == "ChestBoxLocked" then
-			Label = Object:GetAttribute("Locked") and "上锁的箱子" or "箱子"
+			Label = Object:GetAttribute("Locked") and "Locked Chest" or "Chest"
 		elseif Object.Name == "Toolbox" or Object.Name == "Toolbox_Locked" then
-			Label = Object:GetAttribute("Locked") and "上锁的工具箱" or "工具箱"
+			Label = Object:GetAttribute("Locked") and "Locked Toolbox" or "Toolbox"
 		elseif ChestLabels[Object.Name] and ChestLabels[Object.Name] ~= true then
 			Label = ChestLabels[Object.Name]
 		end
@@ -6145,13 +6145,13 @@ local function ApplyVisualESP_Misc()
 	for _, Object in Objects.Misc do
 		local Label = Object.Name
 		if Object.Name == "StairwellLockpickDoor" or Object.Name == "StiarwellLockpickDoor" then
-			Label = "车库门"
+			Label = "Garage Door"
 		elseif Object.Name == "StairwellFireAlarm" then
-			Label = "警报器"
+			Label = "Fire Alarm"
 		elseif Object.Name == "ShoppingCart" then
-			Label = "购物车"
+			Label = "Shopping Cart"
 		elseif Object.Name == "ArchivesFihTank" or Object.Name == "ArchivesFishTank" then
-			Label = "鱼缸"
+			Label = "Fish Tank"
 		end
 		local Family = (Label == Object.Name) and "Other" or Label
 		if Toggles.MiscESPToggle.Value and ESPChoiceSelected("MiscESPOptions", Family) then
