@@ -335,7 +335,107 @@ local EntityIcons = {
 	["Groundskeeper"]   = "rbxassetid://114991380115557"
 }
 
+local ItemNames = {
+    ["AbrahamHat"]       = "Hat",
+    ["LargeScrew"]       = "Screw",
+    ["KeyJewelry"]       = "Jewerly Key",
+    ["Leftovers"]        = "Lunch Box",
+    ["Haybale"]          = "Haybale",
+    ["WizardHat"]        = "Wizard Hat",
+    ["CandyBasket"]      = "Candy Basket",
+    ["BrokenHeadstone"]  = "Broken Headstone",
+    ["GiantGummyworm"]   = "Giant Gummyworm",
+    ["ChocolateCrate"]   = "Crate of Chocolate",
+    ["CandyBucket"]      = "Candy Bucket",
+    ["LargeCandyBag"]    = "Large Candy Bag",
+    ["SmallCauldron"]    = "Small Cauldron",
+    ["ObjectScanner"]    = "Scanner",
+    ["Drive"]            = "Drive",
+	["DinkyLamp"]         = "Lamp",
+	["BottleCrate"]       = "18+ Bottles",
+	["GweenSodaPack"]     = "Gween Soda Pack",
+	["BrokenMonitor"]     = "Broken Monitor",
+	["JerryCan"]          = "Jerry Can",
+ 	["SallyToyObtain"]    = "Sally Toy",
+	["Leftovers"]         = "Lunch Box",
+	["HoneyPot"]          = "Honey Pot",
+	["FihFlakes"]         = "Fih Food",
+	["SecretCD"]          = "CD Disc",
+	["Pizza"]             = "Pizza",
+	["PaperPlanePickup"]  = "Paper Plane",
+	["Lighter"]           = "Lighter",
+	["Flashlight"]        = "Flashlight",
+	["Lockpick"]          = "Lockpicks",
+	["Vitamins"]          = "Vitamins",
+	["Bandage"]           = "Bandage",
+	["StarVial"]          = "Starlight Vial",
+	["StarBottle"]        = "Starlight Bottle",
+	["StarJug"]           = "Starlight Barrel",
+	["Shakelight"]        = "Gummy Flashlight",
+	["Straplight"]        = "Straplight",
+	["Bulklight"]         = "Spotlight",
+	["Battery"]           = "Battery",
+	["Candle"]            = "Candle",
+	["Crucifix"]          = "Crucifix",
+	["CrucifixWall"]      = "Crucifix",
+	["Glowsticks"]        = "Glowstick",
+	["SkeletonKey"]       = "Skeleton Key",
+	["Candy"]             = "Candy",
+	["ShieldMini"]        = "Mini Shield Potion",
+	["ShieldBig"]         = "Big Shield Potion",
+	["BandagePack"]       = "Bandage Pack",
+	["BatteryPack"]       = "Battery Pack",
+	["RiftCandle"]        = "Moonlight Candle",
+	["LaserPointer"]      = "Laser Pointer",
+	["HolyGrenade"]       = "Holy Hand Grenade",
+	["Shears"]            = "Shears",
+	["Smoothie"]          = "Smoothie",
+	["Cheese"]            = "Cheese",
+	["Bread"]             = "Bread",
+	["AlarmClock"]        = "Alarm Clock",
+	["RiftSmoothie"]      = "Moonlight Smoothie",
+	["GweenSoda"]         = "Gween Soda",
+	["GlitchCube"]        = "Glitch Fragment",
+	["Scanner"]           = "Tablet",
+	["Bomb"]              = "Bomb",
+	["Knockbomb"]         = "Knockbomb",
+	["Nanner"]            = "Nanner",
+	["BigBomb"]           = "Big Bomb",
+	["SnakeBox"]          = "Hiding Box",
+	["GoldGun"]           = "Golden Gun",
+	["StopSign"]          = "Stop Sign",
+	["TipJar"]            = "Tip Jar",
+	["Lantern"]           = "Lantern",
+	["IronKey"]           = "Iron Key",
+	["LotusPetal"]        = "Lotus Petal",
+	["Compass"]           = "Compass",
+	["LotusPetalPickup"]  = "Lotus Petal",
+	["LanternLitItem"]    = "Lantern",
+	["KeyIron"]           = "Iron Key",
+	["IronKeyForCrypt"]   = "Iron Key",
+	["LotusHolder"]       = "Lotus Petal",
+	["Multitool"]         = "Multitool",
+	["RiftJar"]           = "Rift Jar",
+	["AloeVera"]          = "Aloe Vera",
+	["Donut"]             = "Donut",
+	["Lotus"]             = "Lotus",
+	["BoxingGloves"]      = "Boxing Gloves"
+}
 
+local CutsceneNames = {
+    "Figure",
+    "FigureEnd",
+    "FigureHotelEnd",
+    "FigureHotelFire",
+    "SeekIntroFools",
+    "SeekIntroHotel",
+    "SeekIntroMines",
+    "SeekIntroMines2",
+    "SerewSeekDrain",
+    "SewerSeekLower",
+    "GrumbleNestEnd",
+    "EyestalkIntro",
+}
 
 local Character
 local Humanoid
@@ -4915,7 +5015,7 @@ Toggles.VelocityManipulationToggle:AddKeyPicker("VelocityManipulationKeybind", {
 	Mode = Library.IsMobile and "Toggle" or "Hold", SyncToggleState = true
 })
 Groupboxes.Exploits_BypassRight:AddDropdown("VelocityManipulationMode", {
-	Values = {"平移", "轴心"}, Text = "移动方式",
+	Values = {"Velocity", "Pivot"}, Text = "移动方式",
 	Default = 1,
 })
 
@@ -7454,14 +7554,14 @@ Functions.HandleCharacter = function(NewCharacter)
 		CollisionClone.CollisionGroup = Collision.CollisionGroup
 		CollisionClone.Position = RootPart.Position + Vector3.new(0, Toggles.PositionSpoof.Value and 1.75 or 0.18, 0)
 
-		if Toggles.VelocityManipulationToggle.Value and Options.VelocityManipulationMode.Value == "平移" then
+		if Toggles.VelocityManipulationToggle.Value and Options.VelocityManipulationMode.Value == "Velocity" then
 			Globals.ManipulateBody.Parent = RootPart
 			Globals.ManipulateBody.Velocity = RootPart.CFrame.LookVector * 2.25
 		else
 			Globals.ManipulateBody.Parent = nil
 		end
 
-		if Toggles.VelocityManipulationToggle.Value and Options.VelocityManipulationMode.Value == "轴心" and Floor ~= "Fools" and Floor ~= "OldHotel" then
+		if Toggles.VelocityManipulationToggle.Value and Options.VelocityManipulationMode.Value == "Pivot" and Floor ~= "Fools" and Floor ~= "OldHotel" then
 			Character:PivotTo(Camera:GetPivot() * CFrame.new(0, 0, 2560))
 		end
 
