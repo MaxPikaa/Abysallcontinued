@@ -1628,8 +1628,8 @@ Toggles.AutoInteractToggle:AddKeyPicker("AutoInteractKeybind", {
 })
 Groupboxes.Self_Automation:AddDropdown("AutoInteractIgnoreList", {
 	Text = "忽略列表",
-	Values = { "故障碎片", "Jeff 物品", "掉落物品", "金币", "矿车", "锁" },
-    Default = { "故障碎片", "Jeff 物品", "掉落物品" },
+	Values = { "Glitch Fragments", "Jeff Items", "Dropped Items", "Currency", "Minecarts", "Locks" },
+	Default = { "Glitch Fragments", "Jeff Items", "Dropped Items" },
 	Multi = true, AllowNull = true
 })
 Groupboxes.Self_Automation:AddDivider()
