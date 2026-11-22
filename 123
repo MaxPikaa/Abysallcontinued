@@ -335,107 +335,7 @@ local EntityIcons = {
 	["Groundskeeper"]   = "rbxassetid://114991380115557"
 }
 
-local ItemNames = {
-    ["AbrahamHat"]       = "Hat",
-    ["LargeScrew"]       = "Screw",
-    ["KeyJewelry"]       = "Jewerly Key",
-    ["Leftovers"]        = "Lunch Box",
-    ["Haybale"]          = "Haybale",
-    ["WizardHat"]        = "Wizard Hat",
-    ["CandyBasket"]      = "Candy Basket",
-    ["BrokenHeadstone"]  = "Broken Headstone",
-    ["GiantGummyworm"]   = "Giant Gummyworm",
-    ["ChocolateCrate"]   = "Crate of Chocolate",
-    ["CandyBucket"]      = "Candy Bucket",
-    ["LargeCandyBag"]    = "Large Candy Bag",
-    ["SmallCauldron"]    = "Small Cauldron",
-    ["ObjectScanner"]    = "Scanner",
-    ["Drive"]            = "Drive",
-	["DinkyLamp"]         = "Lamp",
-	["BottleCrate"]       = "18+ Bottles",
-	["GweenSodaPack"]     = "Gween Soda Pack",
-	["BrokenMonitor"]     = "Broken Monitor",
-	["JerryCan"]          = "Jerry Can",
- 	["SallyToyObtain"]    = "Sally Toy",
-	["Leftovers"]         = "Lunch Box",
-	["HoneyPot"]          = "Honey Pot",
-	["FihFlakes"]         = "Fih Food",
-	["SecretCD"]          = "CD Disc",
-	["Pizza"]             = "Pizza",
-	["PaperPlanePickup"]  = "Paper Plane",
-	["Lighter"]           = "Lighter",
-	["Flashlight"]        = "Flashlight",
-	["Lockpick"]          = "Lockpicks",
-	["Vitamins"]          = "Vitamins",
-	["Bandage"]           = "Bandage",
-	["StarVial"]          = "Starlight Vial",
-	["StarBottle"]        = "Starlight Bottle",
-	["StarJug"]           = "Starlight Barrel",
-	["Shakelight"]        = "Gummy Flashlight",
-	["Straplight"]        = "Straplight",
-	["Bulklight"]         = "Spotlight",
-	["Battery"]           = "Battery",
-	["Candle"]            = "Candle",
-	["Crucifix"]          = "Crucifix",
-	["CrucifixWall"]      = "Crucifix",
-	["Glowsticks"]        = "Glowstick",
-	["SkeletonKey"]       = "Skeleton Key",
-	["Candy"]             = "Candy",
-	["ShieldMini"]        = "Mini Shield Potion",
-	["ShieldBig"]         = "Big Shield Potion",
-	["BandagePack"]       = "Bandage Pack",
-	["BatteryPack"]       = "Battery Pack",
-	["RiftCandle"]        = "Moonlight Candle",
-	["LaserPointer"]      = "Laser Pointer",
-	["HolyGrenade"]       = "Holy Hand Grenade",
-	["Shears"]            = "Shears",
-	["Smoothie"]          = "Smoothie",
-	["Cheese"]            = "Cheese",
-	["Bread"]             = "Bread",
-	["AlarmClock"]        = "Alarm Clock",
-	["RiftSmoothie"]      = "Moonlight Smoothie",
-	["GweenSoda"]         = "Gween Soda",
-	["GlitchCube"]        = "Glitch Fragment",
-	["Scanner"]           = "Tablet",
-	["Bomb"]              = "Bomb",
-	["Knockbomb"]         = "Knockbomb",
-	["Nanner"]            = "Nanner",
-	["BigBomb"]           = "Big Bomb",
-	["SnakeBox"]          = "Hiding Box",
-	["GoldGun"]           = "Golden Gun",
-	["StopSign"]          = "Stop Sign",
-	["TipJar"]            = "Tip Jar",
-	["Lantern"]           = "Lantern",
-	["IronKey"]           = "Iron Key",
-	["LotusPetal"]        = "Lotus Petal",
-	["Compass"]           = "Compass",
-	["LotusPetalPickup"]  = "Lotus Petal",
-	["LanternLitItem"]    = "Lantern",
-	["KeyIron"]           = "Iron Key",
-	["IronKeyForCrypt"]   = "Iron Key",
-	["LotusHolder"]       = "Lotus Petal",
-	["Multitool"]         = "Multitool",
-	["RiftJar"]           = "Rift Jar",
-	["AloeVera"]          = "Aloe Vera",
-	["Donut"]             = "Donut",
-	["Lotus"]             = "Lotus",
-	["BoxingGloves"]      = "Boxing Gloves"
-}
 
-local CutsceneNames = {
-    "Figure",
-    "FigureEnd",
-    "FigureHotelEnd",
-    "FigureHotelFire",
-    "SeekIntroFools",
-    "SeekIntroHotel",
-    "SeekIntroMines",
-    "SeekIntroMines2",
-    "SerewSeekDrain",
-    "SewerSeekLower",
-    "GrumbleNestEnd",
-    "EyestalkIntro",
-}
 
 local Character
 local Humanoid
@@ -1628,7 +1528,8 @@ Toggles.AutoInteractToggle:AddKeyPicker("AutoInteractKeybind", {
 })
 Groupboxes.Self_Automation:AddDropdown("AutoInteractIgnoreList", {
 	Text = "忽略列表",
-	
+	Values = { "Glitch Fragments", "Jeff Items", "Dropped Items", "Currency", "Minecarts", "Locks" },
+    Default = { "Glitch Fragments", "Jeff Items", "Dropped Items" },
 	Multi = true, AllowNull = true
 })
 Groupboxes.Self_Automation:AddDivider()
@@ -5027,7 +4928,7 @@ Groupboxes.Exploits_BypassRight:AddToggle("InfiniteItemsToggle", {
 })
 Groupboxes.Exploits_BypassRight:AddDropdown("InfiniteItemsList", {
 	Text = "道具列表",
-	Values = { "撬锁器", "万能钥匙", "剪刀", "多功能工具" },
+	Values = { "Lockpicks", "Skeleton Key", "Shears", "Multitool" },
 	Multi = true, AllowNull = true,
 	Disabled = not Functions.CheckCompatability({"fireproximityprompt"}),
 	DisabledTooltip = Globals.IncompatibleMessage
@@ -5759,11 +5660,11 @@ local ObjectiveESPChoices = {
 	"书", "密码纸", "保险丝拉杆", "时间拉杆", "锚点",
 	"水泵", "藤蔓拉杆", "闸门拉杆", "闸门按钮", "礼物",
 	"车库门", "镜子", "购物车", "警报器", "粉碎机",
-	"糖果", "包裹投递口", "地窖", "鱼缸",
+	"糖果魔法", "包裹投递口", "地窖", "鱼缸",
 }
 Groupboxes.Visuals_ESP_Toggles:AddToggle("ObjectiveESPToggle", {
-	Text = "目标点 ESP", Default = false,
-	Tooltip = "高亮任务目标物件，在下方逐项勾选"
+	Text = "目标点ESP", Default = false,
+	Tooltip = "高亮任务目标物件 在下方逐项勾选"
 })
 Groupboxes.Visuals_ESP_Toggles:AddDropdown("ObjectiveESPOptions", {
 	Text = "目标勾选",
@@ -5780,7 +5681,7 @@ Groupboxes.Visuals_ESP_Toggles:AddToggle("DoorESPToggle", {
 })
 Toggles.DoorESPToggle:AddColorPicker("DoorESPColor", { Text = "门", Default = Color3.fromRGB(0, 200, 255), Transparency = 0 })
 
-local HidingSpotESPChoices = { "衣柜", "储物柜", "躲藏点", "躲藏点", "床", "双人床", "通风管道", "垃圾箱" }
+local HidingSpotESPChoices = { "衣柜", "储物柜", "躲藏点", "床", "双人床", "通风管道", "垃圾箱" }
 Groupboxes.Visuals_ESP_Toggles:AddToggle("HidingSpotESPToggle", {
 	Text = "躲藏点", Default = false,
 	Tooltip = "高亮衣柜、储物柜、床、通风管等躲藏点，可在下方逐项勾选"
@@ -5847,7 +5748,7 @@ Groupboxes.Visuals_ESP_Toggles:AddToggle("LadderESPToggle", {
 })
 Toggles.LadderESPToggle:AddColorPicker("LadderESPColor", { Text = "梯子", Default = Color3.fromRGB(3, 67, 71), Transparency = 0 })
 
-local MiscESPChoices = { "车库门", "火警警报器", "购物车", "鱼缸", "其他" }
+local MiscESPChoices = { "车库门", "警报器", "购物车", "鱼缸", "其他" }
 Groupboxes.Visuals_ESP_Toggles:AddToggle("MiscESPToggle", {
 	Text = "杂项", Default = false,
 	Tooltip = "高亮车库门、火警器、购物车等杂项物件，可在下方逐项勾选"
@@ -5933,19 +5834,19 @@ local ObjectiveLabels = {
 	["StairwellLockpickDoor"]  = "车库门",
 	["Mirror"]				   = "镜子",
 	["ShoppingCart"]		   = "购物车",
-	["StairwellFireAlarm"]     = "火警警报器",
+	["StairwellFireAlarm"]     = "警报器",
 	["StairwellScrapper"]	   = "粉碎机",
-	["ArchivesPackageDeposit"] = "箱子存放处",
+	["ArchivesPackageDeposit"] = "包裹投递口",
 	["Cellar"] 			   = "地窖",
-	["ArchivesFihTank"]        = "Fih 水箱",
+	["ArchivesFihTank"]        = "Fih 鱼缸",
 	["KeyObtain"]              = "门钥匙",
-	["ElectricalKeyObtain"]    = "电力钥匙",
+	["ElectricalKeyObtain"]    = "电器间钥匙",
 	["MinesGenerator"]         = "发电机",
 	["FuseObtain"]             = "发电机保险丝",
-	["LiveHintBook"]           = "提示书",
-	["LiveBreakerPolePickup"]  = "保险丝断路器",
-	["LibraryHintPaper"]       = "提示纸",
-	["PickupItem"]             = "提示纸",
+	["LiveHintBook"]           = "书",
+	["LiveBreakerPolePickup"]  = "保险丝拉杆",
+	["LibraryHintPaper"]       = "密码纸",
+	["PickupItem"]             = "密码纸",
 	["CringlePresent"]         = "礼物",
 	["LeverForGate"]           = "闸门拉杆",
 	["MinesGateButton"]        = "闸门按钮",
@@ -5953,8 +5854,8 @@ local ObjectiveLabels = {
 }
 
 local ObjectiveFamilyFix = {
-	["Box Deposit"] = "箱子存放处",
-	["Fih Tank"]   = "Fih 水箱",
+	["包裹投递口"] = "包裹投递口",
+	["Fih 鱼缸"]   = "鱼缸",
 }
 
 local function ApplyVisualESP_Objective()
@@ -6062,15 +5963,15 @@ end)
 
 local ChestLabels = {
 	ChestBox = true, ChestBoxLocked = true, Toolbox = true, Toolbox_Locked = true,
-	Chest_Vine = "Vine Chest", Toolshed_Small = "Toolshed", Locker_Small_Locked = "Locked Item Locker", MouseHole = "Mouse"
+	Chest_Vine = "藤蔓箱子", Toolshed_Small = "工具棚", Locker_Small_Locked = "上锁物品柜", MouseHole = "老鼠洞"
 }
 local function ApplyVisualESP_Chest()
 	for _, Object in Objects.Chests do
 		local Label
 		if Object.Name == "ChestBox" or Object.Name == "ChestBoxLocked" then
-			Label = Object:GetAttribute("Locked") and "Locked Chest" or "Chest"
+			Label = Object:GetAttribute("Locked") and "上锁的箱子" or "箱子"
 		elseif Object.Name == "Toolbox" or Object.Name == "Toolbox_Locked" then
-			Label = Object:GetAttribute("Locked") and "Locked Toolbox" or "Toolbox"
+			Label = Object:GetAttribute("Locked") and "上锁的工具箱" or "工具箱"
 		elseif ChestLabels[Object.Name] and ChestLabels[Object.Name] ~= true then
 			Label = ChestLabels[Object.Name]
 		end
@@ -6146,7 +6047,7 @@ local function ApplyVisualESP_Misc()
 		if Object.Name == "StairwellLockpickDoor" or Object.Name == "StiarwellLockpickDoor" then
 			Label = "车库门"
 		elseif Object.Name == "StairwellFireAlarm" then
-			Label = "火警警报器"
+			Label = "警报器"
 		elseif Object.Name == "ShoppingCart" then
 			Label = "购物车"
 		elseif Object.Name == "ArchivesFihTank" or Object.Name == "ArchivesFishTank" then
@@ -8153,7 +8054,7 @@ Functions.HandleObject = function(Object)
 		if VisualESPEnabled("Chests", "老鼠洞") then Functions.AddESP({ Object = Object, Text = "老鼠洞", Color = Options.ChestESPColor.Value }, true) end
 		table.insert(Objects.Chests, Object)
 	elseif ItemNames[Name] and Object:FindFirstChild("ModulePrompt") then
-		if VisualESPEnabled("物品", ItemNames[Name]) then Functions.AddESP({ Object = Object, Text = ItemNames[Name], Color = Options.ItemESPColor.Value }, Object:GetAttribute("ParentRoom") ~= nil) end
+		if VisualESPEnabled("Items", ItemNames[Name]) then Functions.AddESP({ Object = Object, Text = ItemNames[Name], Color = Options.ItemESPColor.Value }, Object:GetAttribute("ParentRoom") ~= nil) end
 		if Name == "LotusHolder" or Name == "LotusPetalPickup" then
 			Object.Handle:GetPropertyChangedSignal("LocalTransparencyModifier"):Connect(function()
 				Abysall.ESPLibrary:RemoveESP(Object)
@@ -8171,7 +8072,7 @@ Functions.HandleObject = function(Object)
 
 		table.insert(Objects.Items, Object)
 	elseif Name == "Green_Herb" then
-		if VisualESPEnabled("物品", "草药") then Functions.AddESP({ Object = Object, Text = "草药", Color = Options.ItemESPColor.Value }, true) end
+		if VisualESPEnabled("Items", "草药") then Functions.AddESP({ Object = Object, Text = "草药", Color = Options.ItemESPColor.Value }, true) end
 		table.insert(Objects.Items, Object)
 	elseif Name == "GoldPile" and Object:GetAttribute("GoldValue") then
 		if VisualESPEnabled("Currency", "金币") then Functions.AddESP({ Object = Object, Text = "金币 [" .. Object:GetAttribute("GoldValue") .. "]", Color = Options.CurrencyESPColor.Value }, true) end
@@ -8468,7 +8369,7 @@ Connections.PromptAnimationFixer1 = Services.ProximityPromptService.PromptButton
 		or (Object.Parent and Object.Parent:GetAttribute("Locked") == true)
 		or (Object.Parent and Object.Parent.Parent and Object.Parent.Parent.Name == "Locker_Small_Locked" and Object.Name == "ActivateEventPrompt")
 	if IsLockPrompt then
-		if Options.AutoInteractIgnoreList.Value["锁"] then return end
+		if Options.AutoInteractIgnoreList.Value["Locks"] then return end
 		local KeyItems = { "Key","GeneratorFuse","KeyBackdoor","KeyElectrical","KeyIron","Lockpick","SkeletonKey","Shears","Multitool" }
 		local OffhandKeyItems = { "Key","GeneratorFuse","KeyElectrical","KeyIron" }
 		local HasKey = false
@@ -8727,7 +8628,7 @@ Functions.TriggerPrompt = function(Prompt)
 		or (Prompt.Parent and Prompt.Parent.Parent and Prompt.Parent.Parent.Name == "Locker_Small_Locked" and Prompt.Name == "ActivateEventPrompt")
 
 	if IsLockPrompt then
-		if Options.AutoInteractIgnoreList.Value["锁"] then return end
+		if Options.AutoInteractIgnoreList.Value["Locks"] then return end
 		local KeyItems = { "Key","GeneratorFuse","KeyBackdoor","KeyElectrical","KeyIron","Lockpick","SkeletonKey","Shears","Multitool" }
 		local OffhandKeyItems = { "Key","GeneratorFuse","KeyElectrical","KeyIron" }
 		local HasKey = false
@@ -8741,13 +8642,13 @@ Functions.TriggerPrompt = function(Prompt)
 	if Prompt.Parent.Name == "Lock1" and not Functions.HasItem("Lockpick", true) and not Functions.HasItem("Multitool", true) or Prompt.Parent.Name == "Lock2" and not Functions.HasItem("Lockpick", true) and not Functions.HasItem("Multitool", true) then return end
 	if Functions.HasItem("Shears", true) and IsLockPrompt and Prompt.Parent.Name ~= "CuttableVines" and Prompt.Parent.Name ~= "Chest_Vine" and Prompt.Parent.Name ~= "Cellar" then return end
 
-	if Prompt.Parent.Name == "GlitchCube" and Options.AutoInteractIgnoreList.Value["故障碎片"] then return end
+	if Prompt.Parent.Name == "GlitchCube" and Options.AutoInteractIgnoreList.Value["Glitch Fragments"] then return end
 
 	if (Prompt.Parent.Name == "KeyObtain" and (Functions.HasItem("Key") or Functions.HasItem("KeyBackdoor")))
 		or (Prompt.Parent.Name == "ElectricalKeyObtain" and Functions.HasItem("KeyElectrical"))
 	then return end
 
-	if Prompt:IsDescendantOf(Drops) and Options.AutoInteractIgnoreList.Value["掉落物品"] then return end
+	if Prompt:IsDescendantOf(Drops) and Options.AutoInteractIgnoreList.Value["Dropped Items"] then return end
 	if Prompt.Parent.Name == "TrackLever" then return end
 	if Prompt.Name == "ActivateEventPrompt" and (Prompt.ActionText == "Close"
 		or Prompt.Parent.Name == "ElevatorBreaker"
@@ -8756,10 +8657,10 @@ Functions.TriggerPrompt = function(Prompt)
 	if Prompt.Name == "ActivateEventPrompt" and (Prompt.Parent.Name == "Padlock" or Prompt.Parent.Name == "MinesAnchor") then return end
 	if Prompt.Parent.Name == "LeverForGate" and Prompt:GetAttribute("Interactions") then return end
 	if Prompt.Parent.Parent and (Prompt.Parent.Parent.Name == "DoorFake" or Prompt.Parent.Parent.Name == "FakeDoor") then return end
-	if Prompt.Parent:GetAttribute("JeffShop") and Options.AutoInteractIgnoreList.Value["Jeff 物品"] then return end
+	if Prompt.Parent:GetAttribute("JeffShop") and Options.AutoInteractIgnoreList.Value["Jeff Items"] then return end
 	if Prompt:GetAttribute("AutoInteractIgnore") then return end
-	if Prompt.Name == "PushPrompt" and Options.AutoInteractIgnoreList.Value["矿车"] then return end
-	if (Prompt.Parent.Name == "GoldPile" or Prompt.Parent.Name == "StardustPickup") and Options.AutoInteractIgnoreList.Value["金币"] then return end
+	if Prompt.Name == "PushPrompt" and Options.AutoInteractIgnoreList.Value["Minecarts"] then return end
+	if (Prompt.Parent.Name == "GoldPile" or Prompt.Parent.Name == "StardustPickup") and Options.AutoInteractIgnoreList.Value["Currency"] then return end
 
 	if Prompt.Parent.Name == "Bandage" then
 		local BPack = Functions.HasItem("BandagePack")
@@ -8859,7 +8760,7 @@ Connections.InfiniteItemsHandler = Services.ProximityPromptService.PromptTrigger
 		or (Object.Parent and Object.Parent:GetAttribute("Locked") == true)
 		or (Object.Parent and Object.Parent.Parent and Object.Parent.Parent.Name == "Locker_Small_Locked" and Object.Name == "ActivateEventPrompt")
 	if IsLockPrompt then
-		if Options.AutoInteractIgnoreList.Value["锁"] then return end
+		if Options.AutoInteractIgnoreList.Value["Locks"] then return end
 		local KeyItems = { "Key","GeneratorFuse","KeyBackdoor","KeyElectrical","KeyIron","Lockpick","SkeletonKey","Shears","Multitool" }
 		local OffhandKeyItems = { "Key","GeneratorFuse","KeyElectrical","KeyIron" }
 		local HasKey = false
