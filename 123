@@ -3771,7 +3771,7 @@ Groupboxes.Stairwell_Misc = Tabs.Stairwell:AddLeftGroupbox("功能 / 绕过 / �
 
 Groupboxes.Stairwell_Misc:AddDivider()
 Groupboxes.Stairwell_Misc:AddToggle("BypassNoise", { Text = "Noise TV破坏", Default = false, Tooltip = "在 Noise 拿电视时将其破坏" })
-Groupboxes.Stairwell_Misc:AddToggle("AntiNoise", { Text = ".绕过 Noise", Default = false, Tooltip = "移动时不发出声音（对游戏隐藏你的移动）" })
+Groupboxes.Stairwell_Misc:AddToggle("AntiNoise", { Text = "绕过 Noise", Default = false, Tooltip = "移动时不发出声音（对游戏隐藏你的移动）" })
 
 
 Groupboxes.Stairwell_Misc:AddToggle("DroppedItemValue", { Text = "物品数量", Default = false, Tooltip = "显示掉落物数量" })
